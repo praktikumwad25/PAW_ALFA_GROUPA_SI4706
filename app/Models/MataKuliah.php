@@ -8,4 +8,9 @@ class MataKuliah extends Model
 {
     //TODO
     //Tambahkan fillable model MataKuliah sesuai dengan variabel yang ada
+    protected $fillable = [
+        'nama',
+        'kode',
+        'sks',
+    ];
 }

@@ -14,8 +14,14 @@ return new class extends Migration {
         //Isi bagian ini dengan perintah untuk membuat struktur tabel 'mahasiswas'.
         //Gunakan Schema::create dan tambahkan kolom sesuai kebutuhan
         //Semua kolom menggunakan tipe data string, untuk nim menggunakan unique
+        Schema::create('tabel_mahasiswa', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->int('nim');
+            $table->string('jurusan');
+            $table->string('fakultas');
+        });
     }
-
     /**
      * Reverse the migrations.
      */

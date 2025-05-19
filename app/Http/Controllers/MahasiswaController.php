@@ -12,7 +12,8 @@ class MahasiswaController extends Controller
     //TODO ( Praktikan Nomor Urut 1 )
     // Tambahkan fungsi index yang akan menampilkan List Data Mahasiswa
     // dan fungsi show yang akan menampilkan Detail Data Mahasiswa yang dipilih
-
+        $mahasiswa = Mahasiswa::all()->paginate(perPage: 5);
+        return new MahasiswaResource (true, $mahasiswa);
     //TODO ( Praktikan Nomor Urut 2 )
     // Tambahkan fungsi store yang akan menyimpan data Mahasiswa baru
 
