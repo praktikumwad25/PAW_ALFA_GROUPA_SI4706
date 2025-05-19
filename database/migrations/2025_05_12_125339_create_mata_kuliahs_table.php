@@ -15,6 +15,13 @@ return new class extends Migration {
         //Gunakan Schema::create dan tambahkan kolom sesuai kebutuhan
         //Kolom nama dan kode menggunakan tipe data string sedangkan kolom sks menggunakan integer
         //Kolom kode menggunakan unique
+        Schema::create('mata_kuliahs', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('kode')->unique();
+            $table->integer('sks');
+            $table->timestamps();
+        });
     }
 
     /**
