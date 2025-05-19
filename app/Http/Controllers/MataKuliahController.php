@@ -15,7 +15,26 @@ class MatakuliahController extends Controller
 
     //TODO ( Praktikan Nomor Urut 6 )
     // Tambahkan fungsi store yang akan menyimpan data MataKuliah baruurn new MatakuliahResource(true, 'Data Matakuliah Berhasil Ditambahkan!', $matakuliah)
+    public function  store(Request $request)
+    {
+        $validator = Validator::make($request ->all(),[
+            'nama' => ['required', 'string', 'max:255'],
+            'kode' => ['required', 'string','max:255','unique:mata_kuliahs'],
+            'sks'  => ['required', 'interger'],
+        ]);
 
+        if ($validator->fais()) {
+            return response() ->json($validator->error(), 422);
+        }
+
+        $matakuliah = Matakuliah::create([
+            'nama' => $request -> nama,
+            'kode' => $request -> kode,
+            'sks'  => $request -> sks,
+        ]);
+        
+        return new MatakuliahResource(true, 'Data Matakuliah Berhasil Ditambahkan!', $matakuliah);
+    }
     //TODO ( Praktikan Nomor Urut 7 )
     // Tambahkan fungsi update yang mengubah data MataKuliah yang dipilih
 

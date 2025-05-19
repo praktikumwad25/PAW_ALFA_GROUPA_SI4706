@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 //TODO
 //Tambahkan Library Sanctum HasApiTokens
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -14,7 +15,7 @@ class User extends Authenticatable
 
     //TODO
     //Tambahkan HasApiTokens agar user dapat mengelola API Token
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
